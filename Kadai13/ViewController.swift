@@ -7,32 +7,34 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-    let fruitNames = ["りんご", "みかん", "バナナ", "パイナップル"]
+struct ListItem {
+    let name: String
+    let isChecked: Bool
+}
 
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak private var tableView: UITableView!
+    private var fruitNames: [ListItem] = [
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: true),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: true)
+    ]
+    @IBAction private func exitDone(segue: UIStoryboardSegue) {
+        if let add = segue.source as? AddViewController {
+            fruitNames.append(ListItem(name: add.addTextField.text!, isChecked: false))
+            self.tableView.reloadData()
+        }
+    }
+    @IBAction private func exitCancel(segue: UIStoryboardSegue) {
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fruitNames.count
-    }
-
+    }    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
-
-        let label = cell.viewWithTag(1) as? UILabel
-        label?.text = fruitNames[indexPath.row]
-
-        func cellImage() {
-            let image = cell.viewWithTag(2) as? UIImageView
-            image?.image = UIImage(named: "check")
-        }
-
-        switch indexPath.row {
-        case 1:
-            cellImage()
-        case 3:
-            cellImage()
-        default:
-            break
-        }
-        return cell
+        // swiftlint:disable:next force_cast
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! ListItemCell
+        cell.configure(item: fruitNames[indexPath.row])
+        return cell        
     }
 }
