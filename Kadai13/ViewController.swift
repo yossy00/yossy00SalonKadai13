@@ -18,8 +18,56 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ListItem(name: "りんご", isChecked: false),
         ListItem(name: "みかん", isChecked: true),
         ListItem(name: "バナナ", isChecked: false),
-        ListItem(name: "パイナップル", isChecked: true)
-    ]
+        ListItem(name: "パイナップル", isChecked: true),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false),
+        ListItem(name: "りんご", isChecked: false),
+        ListItem(name: "みかん", isChecked: false),
+        ListItem(name: "バナナ", isChecked: false),
+        ListItem(name: "パイナップル", isChecked: false)
+        ]
     @IBAction private func exitDone(segue: UIStoryboardSegue) {
         if let add = segue.source as? AddViewController {
             fruitNames.append(ListItem(name: add.addTextField.text!, isChecked: false))
@@ -35,6 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! ListItemCell
         cell.configure(item: fruitNames[indexPath.row])
+        //cellの再利用時チェックマークをはずす機能を追加する
         return cell        
     }
 }
