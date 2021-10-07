@@ -108,12 +108,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zLV-m3-2nO">
                             <connections>
-                                <segue destination="dEE-fr-Nfd" kind="unwind" unwindAction="exitDoneWithSegue:" id="gu7-ar-RlI"/>
+                                <action selector="didTapSave:" destination="kbl-Z2-gKM" id="e9T-np-bZe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addTextField" destination="0xF-nF-zEa" id="YSJ-cT-9g8"/>
+                        <segue destination="dEE-fr-Nfd" kind="unwind" identifier="exitDone" unwindAction="exitDoneWithSegue:" id="tE4-vb-mp7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4F8-fu-iy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

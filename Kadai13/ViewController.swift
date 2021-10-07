@@ -68,17 +68,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ListItem(name: "バナナ", isChecked: false),
         ListItem(name: "パイナップル", isChecked: false)
         ]
+
     @IBAction private func exitDone(segue: UIStoryboardSegue) {
-        if let add = segue.source as? AddViewController {
-            fruitNames.append(ListItem(name: add.addTextField.text!, isChecked: false))
+        if let add = segue.source as? AddViewController,
+           let name = add.name {
+            fruitNames.append(ListItem(name: name, isChecked: false))
             self.tableView.reloadData()
         }
     }
+
     @IBAction private func exitCancel(segue: UIStoryboardSegue) {
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fruitNames.count
-    }    
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable:next force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! ListItemCell

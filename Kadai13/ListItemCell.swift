@@ -8,7 +8,7 @@
 import UIKit
 
 class ListItemCell: UITableViewCell {
-    @IBOutlet weak private(set) var thumbnailImageView: UIImageView!
+    @IBOutlet weak private var thumbnailImageView: UIImageView!
     @IBOutlet weak private var nameLabel: UILabel!
     func configure (item: ListItem) {
         nameLabel.text = item.name
