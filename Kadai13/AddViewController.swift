@@ -8,17 +8,16 @@
 import UIKit
 
 class AddViewController: UIViewController {
-    @IBOutlet weak private(set) var addTextField: UITextField!
+    @IBOutlet weak private var addTextField: UITextField!
+
+    private(set) var name: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func didTapSave(_ sender: Any) {
+        name = addTextField.text ?? ""
+        performSegue(withIdentifier: "exitDone", sender: sender)
     }
-    */
 }
